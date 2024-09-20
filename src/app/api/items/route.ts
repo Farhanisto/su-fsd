@@ -8,12 +8,6 @@ interface Item {
 }
 
 export async function GET() {
-  // const items: Item[] = [
-  //   { createdAt: "2023-09-20T10:00:00Z", filename: "file23.txt" },
-  //   { createdAt: "2023-09-21T12:00:00Z", filename: "file3.txt" },
-  //   { createdAt: "2023-09-19T09:00:00Z", filename: "file10.txt" },
-  //   { createdAt: "2023-09-20T11:00:00Z", filename: "file1.txt" },
-  // ];
   const filePath = path.join(process.cwd(), "data.csv");
 
   try {

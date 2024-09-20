@@ -19,8 +19,6 @@ export default function Home() {
     fetchItems();
   }, []);
 
-  console.log(items, "items_----__-");
-
   const sortItems = (method: string) => {
     const sortedItems = [...items];
     switch (method) {
