@@ -19,6 +19,11 @@ export default function Home() {
     fetchItems();
   }, []);
 
+  const stripLeadingZeros = (filename: string) => {
+    return filename.replace(/(^0+)/, ''); // Removes leading zeros
+  };
+
+
   const sortItems = (method: string) => {
     const sortedItems = [...items];
     if (method === "createdAtAsc") {
@@ -28,11 +33,11 @@ export default function Home() {
       );
     } else if (method === "filenameAsc") {
       sortedItems.sort((a, b) =>
-        a.filename.localeCompare(b.filename, undefined, { numeric: true })
+       stripLeadingZeros(a.filename).localeCompare(stripLeadingZeros(b.filename), undefined, { numeric: true })
       );
     } else if (method === "filenameDesc") {
       sortedItems.sort((a, b) =>
-        b.filename.localeCompare(a.filename, undefined, { numeric: true })
+       stripLeadingZeros(b.filename).localeCompare(stripLeadingZeros(a.filename), undefined, { numeric: true })
       );
     }
     setSortMethod(method);
